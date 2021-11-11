@@ -3,11 +3,14 @@ module.exports = async function (context, req) {
 
     const name = (req.query.name || (req.body && req.body.name));
     if(name){
+        context.res = {
+            status= 200,
+            body: "Hello, " + name
 
     }
     else{
         context.res = {
-            status= 200,
+            status= 400,
             body: "Hello, " + name
     }
     const responseMessage = name
